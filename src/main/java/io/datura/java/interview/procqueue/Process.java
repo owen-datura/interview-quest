@@ -9,7 +9,7 @@ public class Process {
 	private final int level;
 	private final BigInteger startTimeStamp;
 	private BigInteger endTimeStamp;
-	private List<Process> children;
+	private final List<Process> children;
 
 	public Process(String name, String startTime, int level) {
 		this.name = name;
