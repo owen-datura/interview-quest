@@ -1,17 +1,21 @@
 package io.datura.java.interview.procqueue;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Process {
 	private final String name;
 	private final int level;
 	private final BigInteger startTimeStamp;
 	private BigInteger endTimeStamp;
+	private List<Process> children;
 
 	public Process(String name, String startTime, int level) {
 		this.name = name;
 		this.startTimeStamp = new BigInteger(startTime.trim());
 		this.level = level;
+		this.children = new ArrayList<>(5);
 	}
 
 	public Process(String[] tokenizedInput, int level) {
@@ -44,6 +48,14 @@ public class Process {
 
 	public BigInteger getExecutionTime() {
 		return endTimeStamp.subtract(startTimeStamp);
+	}
+
+	public void addChildProcess(Process child) {
+		this.children.add(child);
+	}
+
+	public List<Process> getChildren() {
+		return this.children;
 	}
 
 	@Override
