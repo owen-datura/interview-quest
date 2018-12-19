@@ -46,8 +46,8 @@ public class AppRefactored {
 				// since there isn't a notion of overlapping execution
 				// happening on the same level (that is, if one process
 				// is still running when we see another 'start' event,
-				// it's implied that the new start is a subprocess of
-				// the running process, not a sibling process), performing
+				// it's implied that it's a child of the previous
+				// running process, not that process' sibling), performing
 				// a 'peek' at the stack will give us the process' parent
 				if (pq.peek() != null)
 					pq.peek().addChildProcess(p);
@@ -58,7 +58,7 @@ public class AppRefactored {
 				level++;
 			} else if (EVENT_STOP.equals(event[0])) {
 				Process p = pq.pop();
-				p.setEndTimeStamp(event);
+				p.setEndTimeStamp(event[1]);
 				level--;
 			}
 		}

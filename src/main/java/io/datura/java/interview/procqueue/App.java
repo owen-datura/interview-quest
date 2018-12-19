@@ -49,7 +49,7 @@ public class App {
 				level++;
 			} else if (EVENT_STOP.equals(event[0])) {
 				Process p = pq.pop();
-				p.setEndTimeStamp(event);
+				p.setEndTimeStamp(event[1]);
 				level--;
 
 				int curLevel = p.getLevel();

@@ -26,8 +26,8 @@ public class Process {
 		return endTimeStamp;
 	}
 
-	public void setEndTimeStamp(String[] tokenizedInput) {
-		setEndTimeStamp(new BigInteger(tokenizedInput[1]));
+	public void setEndTimeStamp(String timestamp) {
+		setEndTimeStamp(new BigInteger(timestamp));
 	}
 
 	public void setEndTimeStamp(BigInteger endTimeStamp) {
